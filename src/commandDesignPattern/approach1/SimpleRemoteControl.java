@@ -5,6 +5,7 @@ import commandDesignPattern.approach1.customCommand.NoCommand;
 public class SimpleRemoteControl {
     Command onCommands[];
     Command offCommands[];
+    Command undoCommand;
 
     public SimpleRemoteControl() {
         onCommands = new Command[7];
@@ -13,6 +14,7 @@ public class SimpleRemoteControl {
             onCommands[i] = new NoCommand();
             offCommands[i] = new NoCommand();
         }
+        undoCommand = new NoCommand();
     }
 
     public void setCommand(int slot, Command onCommand, Command offCommand) {
@@ -22,9 +24,15 @@ public class SimpleRemoteControl {
 
     public void onButtonWasPressed(int slot) {
         onCommands[slot].execute();
+        undoCommand = onCommands[slot];
     }
 
     public void offButtonWasPressed(int slot) {
         offCommands[slot].execute();
+        undoCommand = offCommands[slot];
+    }
+
+    public void undoButton() {
+        undoCommand.undo();
     }
 }

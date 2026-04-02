@@ -20,11 +20,11 @@ public class RemoteControlTest {
         GarageDoorCloseCommand garageDoorCloseCommand = new GarageDoorCloseCommand(garageDoor);
 
         remote.setCommand(0, lightOnCommand, lightOffCommand);
-//        remote.setCommand(1, garageDoorOpenCommand, garageDoorCloseCommand);
+        remote.setCommand(1, garageDoorOpenCommand, garageDoorCloseCommand);
         // Below is using the Lambda expressions -> that will reduce the number of classes.
-        remote.setCommand(1, garageDoor::up, garageDoor::down);
         remote.onButtonWasPressed(0);
         remote.offButtonWasPressed(1);
+        remote.undoButton();
         remote.onButtonWasPressed(2);
     }
 }

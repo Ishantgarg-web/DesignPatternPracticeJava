@@ -1,9 +1,6 @@
 package commandDesignPattern.approach1;
 
-import commandDesignPattern.approach1.customCommand.GarageDoorCloseCommand;
-import commandDesignPattern.approach1.customCommand.GarageDoorOpenCommand;
-import commandDesignPattern.approach1.customCommand.LightOffCommand;
-import commandDesignPattern.approach1.customCommand.LightOnCommand;
+import commandDesignPattern.approach1.customCommand.*;
 import commandDesignPattern.approach1.customDevices.GarageDoor;
 import commandDesignPattern.approach1.customDevices.Light;
 
@@ -25,6 +22,13 @@ public class RemoteControlTest {
         remote.onButtonWasPressed(0);
         remote.offButtonWasPressed(1);
         remote.undoButton();
+        remote.onButtonWasPressed(2);
+
+        // setting party mode to slot 2
+        System.out.println("Party Mode");
+        PartyModeCommand partyModeOnCommand = new PartyModeCommand(new Command[] {lightOnCommand, garageDoorOpenCommand});
+        PartyModeCommand partyModeOffCommand = new PartyModeCommand(new Command[] {lightOffCommand, garageDoorCloseCommand});
+        remote.setCommand(2, partyModeOnCommand, partyModeOffCommand);
         remote.onButtonWasPressed(2);
     }
 }

@@ -11,6 +11,9 @@ package adaptorDsignPattern;
  * Nomenclature:
  * 1. target interface: Adaptor
  * 2. Those we want to change into target: Adaptee
+ *
+ * Disadvantage of Adaptor Design Pattern:
+ * 1. As we see in JavaPracticle Example - it will throw exception, if client is not aware of that - can create chaos.
  */
 public class Main {
 }

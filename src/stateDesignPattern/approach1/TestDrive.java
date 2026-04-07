@@ -19,6 +19,13 @@ package stateDesignPattern.approach1;
  *
  * For implement that, we need to modify the GumballMachine class,
  * which can introduce bugs and make the code less flexible.
+ *
+ * Solution: We can use the State design pattern to encapsulate the behavior of each state
+ * in separate classes, and allow the machine to transition
+ * between states based on certain conditions or events.
+ *
+ * Like create seperate classes - SoldState, NoQuarterState, HasQuarterState, SoldOutState
+ * and implement the behavior of each state in those classes.
  */
 public class TestDrive {
     public static void main(String[] args) {
